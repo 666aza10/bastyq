@@ -120,6 +120,34 @@
   .mods td{padding:7px 0;border-bottom:1px solid var(--line)}
   .mods td:last-child{text-align:right;white-space:nowrap;padding-left:16px;font-variant-numeric:tabular-nums}
   .mods tr:last-child td{border-bottom:none;padding-top:10px;color:var(--ink);font-weight:700}
+
+  /* Блоки, добавленные 24.08 под задачу «чтобы захотелось купить».
+     Окупаемость, находки, что нужно от владельца, вопросы. */
+  .payback{margin-top:26px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--signal);border-radius:0 var(--radius) var(--radius) 0;padding:20px 22px;max-width:66ch}
+  .payback b{color:var(--ink)}
+  .payback .big{font-size:clamp(19px,2.6vw,23px);font-weight:800;letter-spacing:-.01em;margin:0 0 8px;line-height:1.25}
+  .payback p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.55}
+  .trial{margin:16px 0 0;font-size:14.5px;color:var(--accent-deep);background:var(--accent-tint);display:inline-block;padding:8px 14px;border-radius:8px;font-weight:600}
+
+  .finds{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:20px}
+  .find{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .find .num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin:0 0 7px}
+  .find p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-soft)}
+  .find b{color:var(--ink)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  @media (max-width:640px){.two{grid-template-columns:1fr}}
+  .two>div{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+  .two h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 10px}
+  .two ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px}
+  .two li{font-size:15px;line-height:1.45;color:var(--ink-soft)}
+  .two .mins{margin:12px 0 0;font-size:13.5px;color:var(--ink-faint)}
+
+  .faq{margin-top:56px}
+  .faq .q{border-top:1px solid var(--line);padding:16px 0}
+  .faq .q:last-child{border-bottom:1px solid var(--line)}
+  .faq h4{margin:0 0 5px;font-size:16.5px;font-weight:700;letter-spacing:-.01em}
+  .faq p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55;max-width:70ch}
 </style>
 
 <div class="page">
@@ -142,6 +170,7 @@
           <ul class="chips">
             <li>Касса / POS</li><li>Meta Ads</li><li>2ГИС</li><li>Telegram</li>
           </ul>
+          <p class="trial">Первые две недели бесплатно. Платить вперёд не нужно.</p>
         </div>
         <div class="shot">
           <p class="demo-cap">Каждое утро - сводка за вчера</p>
@@ -159,6 +188,13 @@
       </div>
       <p class="intro"><b>«У меня касса это и так показывает».</b> Показывает - если в неё зайти. А заходите вы не каждый день, и смотрите там выручку, а не остальное. Три вещи касса не покажет никогда: что накладную от поставщика никто не сверил с прошлой ценой, что менеджеры перестали заводить клиентов в базу, и что через неделю пик, к которому вы не готовы. Бастық считает это сам и пишет в тот же день.</p>
       <p class="intro" style="color:var(--ink-faint);font-size:14px">Скриншоты не нарисованы: так выглядят рабочие сообщения в действующем цветочном магазине, где система работает каждый день. Цифры в примерах изменены.</p>
+      <div class="payback">
+        <p class="big">Одна находка окупает подписку на три месяца вперёд</p>
+        <p>Реальный случай: поставщик поднял цену на одну позицию на <b>21%</b> и не предупредил.
+        Накладную никто не сверял с прошлой поставкой, потому что руками этого не делает никто.
+        При обычном объёме закупа это примерно <b>90 000&nbsp;₸</b> лишних за месяц - и так до тех пор,
+        пока кто-нибудь не заметит. Бастық заметил в тот же день.</p>
+      </div>
     </header>
 
     <!-- BAND 01 -->
@@ -366,6 +402,48 @@
     </section>
 
     <!-- HOW -->
+    <section class="band">
+      <div class="bhead"><div><h2>Что система находит на практике</h2><p class="bsub">Отзывов у нас пока нет: продукт молодой, и мест всего пять. Зато есть находки - вот что система вылавливала в работающих бизнесах.</p></div></div>
+      <div class="finds">
+        <div class="find"><p class="num">Закуп</p><p>Поставщик поднял цену на позицию на <b>21%</b> и не предупредил. Накладную с прошлой поставкой никто не сверял.</p></div>
+        <div class="find"><p class="num">База клиентов</p><p>Менеджеры перестали заводить карточки, и за два месяца мимо базы прошли <b>тысячи покупателей</b>. Позвать их на акцию уже некого.</p></div>
+        <div class="find"><p class="num">Тишина по точке</p><p>Точка простояла <b>сутки без единого заказа</b>, и до утреннего отчёта этого никто не заметил.</p></div>
+        <div class="find"><p class="num">Повторные покупки</p><p>Разовых покупателей оказалось в разы больше, чем считал владелец. Касса этого не показывает: для неё каждый заказ новый.</p></div>
+      </div>
+      <p class="intro" style="font-size:14px;color:var(--ink-faint)">Без названий и точных сумм: это чужие данные. Порядок величин настоящий.</p>
+    </section>
+
+    <section class="band">
+      <div class="bhead"><div><h2>Что нужно от вас</h2><p class="bsub">Ставить ничего не надо, переучивать продавцов не надо, кассу менять не надо.</p></div></div>
+      <div class="two">
+        <div>
+          <h4>Вы, один раз</h4>
+          <ol>
+            <li>Даёте доступ к кассе на чтение</li>
+            <li>Создаёте группу в телеграме и добавляете туда бота</li>
+            <li>Называете план на месяц</li>
+          </ol>
+          <p class="mins">Пятнадцать минут. Больше от вас ничего не требуется.</p>
+        </div>
+        <div>
+          <h4>Мы, дальше всегда</h4>
+          <ol>
+            <li>Проверяем, что касса отдаёт нужные данные, до подключения и бесплатно</li>
+            <li>Настраиваем, сверяем цифры с вашими, ведём</li>
+            <li>Чиним, если что-то отвалилось, и говорим об этом сами</li>
+          </ol>
+          <p class="mins">Отчёты идут по расписанию. Нажимать вручную нечего.</p>
+        </div>
+      </div>
+      <div class="payback" style="border-left-color:var(--accent)">
+        <p class="big">Доступ только на чтение</p>
+        <p>Мы видим продажи, чеки, накладные и отзывы. Мы не можем менять цены, удалять документы
+        и выгружать вашу базу телефонов. Где касса умеет отдельную роль для интеграции, просим именно её;
+        где не умеет, говорим об этом прямо, чтобы вы решали сами. Доступ отзывается в один клик,
+        и в тот же момент мы перестаём видеть что-либо.</p>
+      </div>
+    </section>
+
     <section class="how">
       <h2>Как это устроено</h2>
       <p class="prose">Никаких приложений, которые надо открывать и обновлять. Система живёт на серверах Google, работает сама по расписанию, а вы просто читаете Telegram. Данные берутся напрямую из ваших систем - вручную ничего вносить не нужно.</p>
@@ -377,6 +455,16 @@
       </div>
     </section>
 
+    <section class="faq">
+      <p class="eyebrow">Что обычно спрашивают</p>
+      <div class="q"><h4>Подойдёт ли моя касса?</h4><p>Нужна касса, которая отдаёт данные по API. Сейчас подключены Posiflora, Posterix и МойСклад, новая добавляется настройкой, а не переписыванием продукта. Проверяем до подключения и бесплатно: если ваша касса не отдаёт нужного, честно скажем сразу, а не после оплаты.</p></div>
+      <div class="q"><h4>А если данные в кассе кривые?</h4><p>Тогда первая находка будет именно про это. Система показывает то, что реально лежит в кассе, и расхождения вылезают в первую же неделю. Обычно это не мешает, а помогает: становится видно, где перестали заполнять.</p></div>
+      <div class="q"><h4>Что вы видите из моих данных?</h4><p>Продажи, чеки, приходные накладные, отзывы. Только чтение. Менять цены, удалять документы или выгружать базу телефонов мы не можем. Таблица с вашими цифрами доступна вам, отчёты приходят в вашу группу.</p></div>
+      <div class="q"><h4>А если вы пропадёте?</h4><p>Данные останутся у вас: таблица ваша, доступ к ней ваш, история никуда не денется. Доступы к кассе отзываются в один клик с вашей стороны, без нашего участия.</p></div>
+      <div class="q"><h4>Можно заплатить сразу за год?</h4><p>Можно, но мы не советуем и скидку за это не даём. Сначала две бесплатные недели, потом месяц за месяцем. Если не подойдёт, вы уходите без штрафов и договоров.</p></div>
+      <div class="q"><h4>Сколько это займёт моего времени?</h4><p>Пятнадцать минут один раз на доступы и группу. Дальше ноль: вы читаете телеграм.</p></div>
+    </section>
+
     <!-- PRICE -->
     <section class="price">
       <p class="eyebrow">Сколько стоит</p>
@@ -384,7 +472,7 @@
         <div>
           <p class="wasprice">77 000 ₸</p>
           <p class="amount">30 000 ₸ <span>в месяц</span></p>
-          <p class="whom">для первых пяти клиентов</p>
+          <p class="whom">для первых пяти - каждого подключаю лично, больше пяти руками не потяну</p>
           <ul class="plist">
             <li><b>Первые две недели - весь набор сразу</b>, а не урезанное демо на одном отчёте</li>
             <li>Подключение и настройка за наш счёт</li>
