@@ -135,16 +135,17 @@
           <p class="demo-cap">Каждое утро - сводка за вчера</p>
           <div class="msg">
             <div class="top"><span>🏪 Ваш бизнес · ежедневно</span><span class="t">9:00</span></div>
-            <span class="line">🏪 <b>Ваш бизнес - 6 марта (Чт)</b></span>
+            <span class="line">🏪 <b data-lp="вчера">Ваш бизнес - 6 марта (Чт)</b></span>
             <span class="line"><span class="k">Выручка:</span> <b>2 442 028&nbsp;₸</b> <span class="up">+18%</span></span>
             <span class="line"><span class="k">Заказов:</span> 248 · <span class="k">чек</span> 9 847&nbsp;₸</span>
             <span class="line"><span class="k">Месяц:</span> 61.8М / план 80М <b>(77%)</b></span>
             <div class="hr"></div>
-            <span class="line warn">🔥 8 марта через 2 дня - исторический пик</span>
+            <span class="line warn" data-lp="пик-коротко">🔥 8 марта через 2 дня - исторический пик</span>
           </div>
         </div>
       </div>
-      <p class="intro">Касса считает выручку. Она не скажет, что клиентов перестали заносить в базу, что поставщик поднял закуп и что через неделю пик, к которому вы не готовы. Ниже - что именно приходит владельцу, на примере действующего магазина. Названия и эмодзи под вашу сферу, механика та же.</p>
+      <p class="intro"><b>«У меня касса это и так показывает».</b> Показывает - если в неё зайти. А заходите вы не каждый день, и смотрите там выручку, а не остальное. Три вещи касса не покажет никогда: что приходную накладную никто не сверил с прошлой ценой, что менеджеры перестали заносить клиентов в базу, и сколько ваших покупателей больше не вернулись - для кассы каждый заказ новый. Бастық считает это сам и пишет в тот же день.</p>
+      <p class="intro" style="color:var(--ink-faint);font-size:14px">Система работает каждый день в двух реальных бизнесах: цветочная сеть и доставка еды. Ниже - что именно приходит владельцу. Названия и эмодзи под вашу сферу, механика та же.</p>
     </header>
 
     <!-- BAND 01 -->
@@ -204,7 +205,7 @@
           <p class="demo-cap">Напоминание о пике</p>
           <div class="msg">
             <div class="top"><span>📅 Пик спроса</span><span class="t">за 7 дней</span></div>
-            <span class="line">📅 <b>8 марта - через 7 дней</b></span>
+            <span class="line">📅 <b data-lp="пик-длинно">8 марта - через 7 дней</b></span>
             <span class="line">Год назад этот день дал выручку</span>
             <span class="line">в <b>4 раза</b> выше обычной.</span>
             <span class="line"><span class="k">→ проверь закуп и график курьеров</span></span>
@@ -214,9 +215,9 @@
           <p class="demo-cap">Месячный отчёт</p>
           <div class="msg">
             <div class="top"><span>📆 · 1-е число</span><span class="t">месяц</span></div>
-            <span class="line">📆 <b>Февраль 2026</b></span>
+            <span class="line">📆 <b data-lp="месяц">Февраль 2026</b></span>
             <span class="line"><span class="k">Факт:</span> <b>65.4М</b> / план 80М (82%)</span>
-            <span class="line"><span class="k">vs Январь:</span> 58.1М → 65.4М <span class="up">+12.6%</span></span>
+            <span class="line"><span class="k" data-lp="месяц-пред">vs Январь:</span> 58.1М → 65.4М <span class="up">+12.6%</span></span>
             <span class="line"><span class="k">Списания:</span> 1.9М (2.9%)</span>
           </div>
         </div>
@@ -225,7 +226,47 @@
 
     <!-- BAND 02 -->
     <section class="band">
-      <div class="bhead"><span class="bnum">02</span><div><h2>Репутация</h2><p class="bsub">Отзыв не должен потеряться до конца дня.</p></div></div>
+      <div class="bhead"><span class="bnum">02</span><div><h2>Спросить своими словами</h2><p class="bsub">Отчёт приходит по расписанию. А вопрос возникает тогда, когда возникает - и не всегда тот, что в отчёте.</p></div></div>
+      <div class="grid">
+        <article class="feat">
+          <h3>Вопрос в телеграм, ответ по вашим цифрам</h3>
+          <p>Пишете боту как человеку, без кнопок и без меню. Он считает по вашей кассе и отвечает.</p>
+          <ul>
+            <li>«Сколько заработали на прошлой неделе против позапрошлой»</li>
+            <li>«Что вообще не продавалось в этом месяце»</li>
+            <li>«Какие позиции подорожали у поставщика»</li>
+            <li>«Какая точка просела и насколько»</li>
+          </ul>
+        </article>
+        <article class="feat">
+          <h3>Считает касса, а не нейросеть <span class="tag">важно</span></h3>
+          <p>Все цифры в ответе взяты из вашей кассы. Модель выбирает, что посчитать, и формулирует ответ, но ни одной цифры не придумывает.</p>
+          <ul>
+            <li>Список того, что она умеет считать, закрытый</li>
+            <li>Чего в нём нет - честное «не вижу», а не выдумка</li>
+            <li>Ответ можно перепроверить в таблице, она у вас на чтении</li>
+          </ul>
+        </article>
+      </div>
+      <div class="shots">
+        <div class="shot">
+          <p class="demo-cap">Спросил словами - получил ответ</p>
+          <div class="msg">
+            <div class="top"><span>💬 Вопрос владельца</span><span class="t">14:20</span></div>
+            <span class="line"><span class="k">Вы:</span> что подорожало у поставщика за месяц?</span>
+            <div class="hr"></div>
+            <span class="line">Выросли три позиции из 47.</span>
+            <span class="line">Самый большой скачок <b>+21%</b>, это</span>
+            <span class="line">добавит примерно <b>90 000&nbsp;₸</b> к закупу</span>
+            <span class="line">за месяц при том же объёме.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAND 03 -->
+    <section class="band">
+      <div class="bhead"><span class="bnum">03</span><div><h2>Репутация</h2><p class="bsub">Отзыв не должен потеряться до конца дня.</p></div></div>
       <div class="grid">
         <article class="feat signal">
           <h3>Отзывы 2ГИС <span class="tag s">сигнал</span></h3>
@@ -253,7 +294,7 @@
           <div class="msg">
             <div class="top"><span>🚨 2ГИС</span><span class="t">только что</span></div>
             <span class="line warn">🚨 <b>НЕГАТИВНЫЙ ОТЗЫВ - требует ответа!</b></span>
-            <span class="line">⭐⭐ Айгуль · 06.03</span>
+            <span class="line">⭐⭐ Айгуль · <span data-lp="дата-коротко">06.03</span></span>
             <span class="line q">«Заказала букет на юбилей - привезли с вялыми розами и на час позже обещанного…»</span>
           </div>
         </div>
@@ -286,7 +327,8 @@
             <li>Отказаться можно в любой месяц, без штрафов и договоров на год</li>
           </ul>
         </div>
-        <a class="cta" href="https://t.me/bastyq_bot?start=landing_main">Посмотреть демо в Telegram</a>
+        <a class="cta" href="https://t.me/bastyq_bot?start=landing_main">Проверить, подойдёт ли ваша касса</a>
+        <p style="margin:8px 0 0;font-size:13px;color:var(--ink-faint);text-align:center">Бот спросит про кассу и покажет живое демо. Ответит и на вопросы словами.</p>
         <table class="mods">
           <tr><td>Отчёт приходит сам в 9 утра: вчерашний день, темп к плану, что просело</td><td>30 000</td></tr>
           <tr><td>Поставщик поднял цену - сообщаем в тот же день, а не в конце месяца</td><td>10 000</td></tr>
@@ -324,6 +366,67 @@
     if (!from) return;
     document.querySelectorAll('a.cta[href*="bastyq_bot"]').forEach(function (a) {
       a.href = a.href + '_' + from;
+    });
+  } catch (e) {}
+})();
+
+// Даты в примерах считаются от сегодняшнего дня. Раньше в скриншотах стояло
+// «6 марта» и «Февраль 2026» намертво, и к августу лендинг читался как
+// заброшенный. Живой продукт не может показывать полугодовой давности отчёт.
+(function () {
+  try {
+    var МЕС = ['января','февраля','марта','апреля','мая','июня',
+               'июля','августа','сентября','октября','ноября','декабря'];
+    var МЕС_И = ['Январь','Февраль','Март','Апрель','Май','Июнь',
+                 'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+    var ДНИ = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
+    // Реальные пики спроса, а не список праздников: берём ближайший впереди.
+    var ПИКИ = [[1,14],[2,8],[4,25],[8,1],[11,31]];  // месяц с нуля, число
+
+    var сейчас = new Date();
+    var вчера = new Date(сейчас.getFullYear(), сейчас.getMonth(), сейчас.getDate() - 1);
+    var дд = function (n) { return (n < 10 ? '0' : '') + n; };
+
+    var ближайший = null, черезДней = 0;
+    for (var г = 0; г < 2 && !ближайший; г++) {
+      for (var i = 0; i < ПИКИ.length; i++) {
+        var д = new Date(сейчас.getFullYear() + г, ПИКИ[i][0], ПИКИ[i][1]);
+        var разница = Math.ceil((д - сейчас) / 86400000);
+        if (разница >= 1) { ближайший = д; черезДней = разница; break; }
+      }
+    }
+    var сутки = function (n) {
+      var к = n % 100, е = n % 10;
+      if (к > 10 && к < 20) return 'дней';
+      if (е === 1) return 'день';
+      if (е >= 2 && е <= 4) return 'дня';
+      return 'дней';
+    };
+    var пикТекст = ближайший
+      ? ближайший.getDate() + ' ' + МЕС[ближайший.getMonth()]
+      : '';
+
+    var прошлый = new Date(сейчас.getFullYear(), сейчас.getMonth() - 1, 1);
+    var позапрошлый = new Date(сейчас.getFullYear(), сейчас.getMonth() - 2, 1);
+
+    document.querySelectorAll('[data-lp]').forEach(function (el) {
+      var вид = el.getAttribute('data-lp');
+      if (вид === 'вчера') {
+        var кто = (el.textContent.split(' - ')[0] || 'Ваш бизнес').trim();
+        el.textContent = кто + ' - ' + вчера.getDate() + ' ' + МЕС[вчера.getMonth()] +
+                         ' (' + ДНИ[вчера.getDay()] + ')';
+      } else if (вид === 'пик-коротко' && ближайший) {
+        el.textContent = '🔥 ' + пикТекст + ' через ' + черезДней + ' ' +
+                         сутки(черезДней) + ' - исторический пик';
+      } else if (вид === 'пик-длинно' && ближайший) {
+        el.textContent = пикТекст + ' - через ' + черезДней + ' ' + сутки(черезДней);
+      } else if (вид === 'месяц') {
+        el.textContent = МЕС_И[прошлый.getMonth()] + ' ' + прошлый.getFullYear();
+      } else if (вид === 'месяц-пред') {
+        el.textContent = 'vs ' + МЕС_И[позапрошлый.getMonth()] + ':';
+      } else if (вид === 'дата-коротко') {
+        el.textContent = дд(вчера.getDate()) + '.' + дд(вчера.getMonth() + 1);
+      }
     });
   } catch (e) {}
 })();
