@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Aza Blog Stats</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 44rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+         font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  .upd { color: #888; font-size: .9rem; margin-bottom: 2rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  ul { padding-left: 1.2rem; }
+  code { background: rgba(128,128,128,.15); padding: .1rem .3rem; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="upd">Aza Blog Stats · last updated 31 August 2026</p>
+
+<p>Aza Blog Stats is a private, single-user tool. It reads statistics for the
+TikTok account owned by its developer and shows them in a private weekly report.
+It is not a product offered to the public, it has no other users, and it does not
+publish anything to TikTok.</p>
+
+<h2>What data is accessed</h2>
+<p>Through the TikTok API, and only for the account that has explicitly authorised
+the app, the following is read:</p>
+<ul>
+  <li>account statistics: follower count, following count, likes count, video count
+      (scope <code>user.info.stats</code>);</li>
+  <li>the list of the account's own public videos and their public metrics
+      (scope <code>video.list</code>);</li>
+  <li>basic profile identifiers supplied by TikTok Login Kit
+      (scope <code>user.info.basic</code>).</li>
+</ul>
+
+<h2>What is not accessed</h2>
+<ul>
+  <li>No data about any other TikTok user is requested or received.</li>
+  <li>No private messages, no contact lists, no personal data of viewers or followers.</li>
+  <li>Nothing is posted, edited or deleted on TikTok by this app.</li>
+</ul>
+
+<h2>How the data is used and stored</h2>
+<p>The numbers are placed into a private weekly summary delivered to the account
+owner in a private Telegram chat. Only aggregate counts are kept, so that the
+next week's report can show the change since the previous one. The data is not
+sold, shared, published, or used for advertising or profiling.</p>
+
+<h2>Access tokens</h2>
+<p>The authorisation token is stored as an environment variable on the server that
+generates the report and is never written to logs or shared with third parties.</p>
+
+<h2>Retention and deletion</h2>
+<p>Authorisation can be revoked at any time in TikTok settings, which immediately
+stops all access. To have the stored counts deleted, contact the address below;
+they will be erased on request.</p>
+
+<h2>Contact</h2>
+<p>azamattursunalenov@gmail.com</p>
+
+</body>
+</html>
