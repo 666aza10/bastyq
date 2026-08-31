@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Авторизация завершена — Aza Blog Stats</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { min-height: 100vh; margin: 0; display: grid; place-items: center;
+         font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .card { max-width: 30rem; padding: 2rem 1.5rem; text-align: center; }
+  .ok { font-size: 2.6rem; line-height: 1; }
+  h1 { font-size: 1.25rem; margin: 1rem 0 .5rem; }
+  p { color: #777; margin: .4rem 0; }
+  .hint { font-size: .9rem; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="ok" id="mark">…</div>
+    <h1 id="head">Проверяю ответ TikTok</h1>
+    <p id="sub">Секунду.</p>
+    <p class="hint">Эту вкладку можно закрыть. Код авторизации остался в адресной
+       строке и действует несколько минут.</p>
+  </div>
+<script>
+  // Ничего не отправляем и не сохраняем: страница только сообщает человеку,
+  // что возврат состоялся. Сам код читается из адресной строки инструментом.
+  var p = new URLSearchParams(location.search);
+  var ok = p.has('code'), err = p.get('error_description') || p.get('error');
+  document.getElementById('mark').textContent = ok ? '✅' : '⚠️';
+  document.getElementById('head').textContent = ok
+    ? 'Готово, доступ выдан'
+    : 'Авторизация не завершилась';
+  document.getElementById('sub').textContent = ok
+    ? 'Код получен. Возвращайся в чат.'
+    : (err || 'TikTok не вернул код. Попробуй пройти авторизацию заново.');
+</script>
+</body>
+</html>
