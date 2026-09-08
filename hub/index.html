@@ -13,7 +13,6 @@
     --void:#0B0B0C;
     --ink:#E9E7E2;
     --dim:#76736C;
-    --line:#1D1D1F;
     --ease:cubic-bezier(.2,.8,.2,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -48,34 +47,27 @@
     color:var(--dim);
   }
 
-  nav{margin:auto 0; border-top:1px solid var(--line)}
+  /* Ни линий, ни рамок: разделяет воздух */
+  nav{margin:auto 0; display:flex; flex-direction:column; gap:46px}
 
-  a.exit{
-    display:grid; grid-template-columns:1fr auto; align-items:center; gap:18px;
-    padding:26px 0; border-bottom:1px solid var(--line);
-    text-decoration:none; color:inherit;
-    transition:opacity .35s var(--ease);
-  }
+  a.exit{display:block; text-decoration:none; color:inherit; max-width:26rem}
   .exit b{
-    display:block; color:var(--ink);
+    display:block; color:var(--dim);
     font-size:clamp(1.32rem,5.6vw,1.7rem);
     font-weight:700; letter-spacing:-.035em; line-height:1.12;
+    transition:color .35s var(--ease);
   }
-  /* Строка о боли, а не о продукте: человек узнаёт в ней себя, а не софт */
+  a.exit:hover b, a.exit:focus-visible b{color:var(--ink)}
   .exit small{
     display:block; margin-top:9px; color:var(--dim);
-    font-size:.95rem; font-weight:400; line-height:1.45; letter-spacing:-.005em;
+    font-size:.95rem; font-weight:400; line-height:1.45;
   }
-
-  .arrow{width:24px; height:24px; flex:none; color:var(--dim);
-         transition:transform .45s var(--ease), color .35s var(--ease)}
-  a.exit:hover .arrow, a.exit:focus-visible .arrow{transform:translateX(8px); color:var(--ink)}
 
   ::selection{background:var(--ink); color:var(--void)}
   :focus-visible{outline:1px solid var(--ink); outline-offset:8px}
   ::-webkit-scrollbar{width:9px}
   ::-webkit-scrollbar-track{background:var(--void)}
-  ::-webkit-scrollbar-thumb{background:var(--line)}
+  ::-webkit-scrollbar-thumb{background:#1D1D1F}
 </style>
 </head>
 <body>
@@ -88,30 +80,18 @@
   <nav>
 
     <a class="exit" href="https://t.me/bastyq_bot">
-      <span>
-        <b>Аналитика бизнеса</b>
-        <small>Касса говорит, сколько заработали. Где потеряли, не говорит.</small>
-      </span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      <b>Аналитика бизнеса</b>
+      <small>Касса говорит, сколько заработали. Где потеряли, не говорит.</small>
     </a>
 
     <a class="exit" href="https://t.me/vibecodingkz_bot">
-      <span>
-        <b>Курс Claude Code</b>
-        <small>Собрать себе помощника, который делает рутину за вас. Без опыта в коде.</small>
-      </span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      <b>Курс Claude Code</b>
+      <small>Собрать себе помощника, который делает рутину за вас. Без опыта в коде.</small>
     </a>
 
     <a class="exit" href="https://www.instagram.com/666xbmw">
-      <span>
-        <b>Блог</b>
-        <small>Как это всё устроено изнутри</small>
-      </span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      <b>Блог</b>
+      <small>Как это всё устроено изнутри</small>
     </a>
 
   </nav>
