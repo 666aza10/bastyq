@@ -64,11 +64,17 @@
   .exit small + small{margin-top:8px}
 
   /* Плашка отсекает чужое: собственнику не читать про курс, новичку про кассу.
-     Обводка, а не заливка — заливка перебила бы заголовок. */
+     Обводкой в цвет разделителей она сливалась с фоном и читалась как ещё одна
+     строка описания — поэтому заливка, светлая обводка и капс с разрядкой.
+     Цвет не вводим: контраст добран яркостью, метка не спорит с заголовком. */
   .tag{
-    display:inline-block; margin-top:16px;
-    padding:5px 12px; border:1px solid var(--line); border-radius:99px;
-    color:var(--dim); font-size:.78rem; font-weight:600; letter-spacing:.02em;
+    display:inline-block; margin-top:18px;
+    padding:6px 13px; border-radius:99px;
+    background:rgba(233,231,226,.08);
+    border:1px solid rgba(233,231,226,.2);
+    color:var(--ink);
+    font-size:.72rem; font-weight:600;
+    text-transform:uppercase; letter-spacing:.1em;
   }
 
   .arrow{width:24px; height:24px; flex:none; color:var(--dim); margin-top:6px;
