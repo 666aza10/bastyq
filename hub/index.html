@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aza</title>
+<meta name="description" content="Живу легко, автоматизирую всё вокруг.">
+<style>
+  /* Светлая тема по умолчанию, тёмная подхватывается системной настройкой.
+     Люди приходят из Threads с телефона, у большинства тёмная. */
+  :root {
+    --bg: #f6f6f4;
+    --card: #ffffff;
+    --text: #16150f;
+    --muted: #6c6a63;
+    --line: #e4e2dc;
+    --accent: #16150f;
+    --accent-text: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e0e0d;
+      --card: #1a1a18;
+      --text: #f2f1ec;
+      --muted: #9b988f;
+      --line: #2a2a27;
+      --accent: #f2f1ec;
+      --accent-text: #0e0e0d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 56px 20px 48px;
+  }
+  .wrap { width: 100%; max-width: 26rem; }
+
+  .mark {
+    width: 64px; height: 64px; margin: 0 auto 18px;
+    border-radius: 20px; background: var(--accent); color: var(--accent-text);
+    display: grid; place-items: center;
+    font-size: 26px; font-weight: 700; letter-spacing: -.02em;
+  }
+  h1 { margin: 0 0 6px; font-size: 1.35rem; font-weight: 650; text-align: center; letter-spacing: -.01em; }
+  .lead { margin: 0 auto 30px; max-width: 22rem; text-align: center; color: var(--muted); font-size: .96rem; }
+
+  a.row {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; padding: 16px 18px; margin-bottom: 12px;
+    transition: transform .12s ease, border-color .12s ease;
+  }
+  a.row:hover, a.row:active { transform: translateY(-1px); border-color: var(--muted); }
+  .row b { display: block; font-size: 1.02rem; font-weight: 620; margin-bottom: 3px; }
+  .row span { display: block; color: var(--muted); font-size: .9rem; }
+
+  footer { margin-top: 26px; text-align: center; color: var(--muted); font-size: .82rem; }
+</style>
+</head>
+<body>
+  <main class="wrap">
+
+    <div class="mark">A</div>
+    <h1>Aza</h1>
+    <p class="lead">Живу легко, автоматизирую всё вокруг.</p>
+
+    <a class="row" href="https://t.me/bastyq_bot">
+      <b>Владельцам бизнеса</b>
+      <span>Бот читает кассу и показывает, где утекают деньги</span>
+    </a>
+
+    <a class="row" href="https://t.me/vibecodingkz_bot">
+      <b>Хочу так же, но сам</b>
+      <span>Курс по Claude Code с нуля, без опыта в коде</span>
+    </a>
+
+    <a class="row" href="https://www.instagram.com/666xbmw">
+      <b>Блог</b>
+      <span>Как это всё выглядит изнутри</span>
+    </a>
+
+    <footer>Пишите в личку, отвечаю сам</footer>
+
+  </main>
+</body>
+</html>
