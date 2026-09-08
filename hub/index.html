@@ -2,91 +2,161 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aza</title>
 <meta name="description" content="Живу легко, автоматизирую всё вокруг.">
+<meta name="theme-color" content="#08080A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
 <style>
-  /* Светлая тема по умолчанию, тёмная подхватывается системной настройкой.
-     Люди приходят из Threads с телефона, у большинства тёмная. */
-  :root {
-    --bg: #f6f6f4;
-    --card: #ffffff;
-    --text: #16150f;
-    --muted: #6c6a63;
-    --line: #e4e2dc;
-    --accent: #16150f;
-    --accent-text: #ffffff;
+  :root{
+    --void:#08080A;
+    --ink:#F4F3EF;
+    --dim:#8B8A84;
+    --line:#211F24;
+    --beam:#9FD8FF;      /* холодный свет фар, единственный акцент */
+    --ease:cubic-bezier(.16,1,.3,1);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0e0e0d;
-      --card: #1a1a18;
-      --text: #f2f1ec;
-      --muted: #9b988f;
-      --line: #2a2a27;
-      --accent: #f2f1ec;
-      --accent-text: #0e0e0d;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 56px 20px 48px;
-  }
-  .wrap { width: 100%; max-width: 26rem; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
 
-  .mark {
-    width: 64px; height: 64px; margin: 0 auto 18px;
-    border-radius: 20px; background: var(--accent); color: var(--accent-text);
-    display: grid; place-items: center;
-    font-size: 26px; font-weight: 700; letter-spacing: -.02em;
+  body{
+    background:var(--void);
+    color:var(--ink);
+    font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-weight:500;
+    min-height:100svh;
+    display:flex;
+    justify-content:center;
+    padding:max(28px,env(safe-area-inset-top)) 22px max(28px,env(safe-area-inset-bottom));
+    overflow-x:hidden;
   }
-  h1 { margin: 0 0 6px; font-size: 1.35rem; font-weight: 650; text-align: center; letter-spacing: -.01em; }
-  .lead { margin: 0 auto 30px; max-width: 22rem; text-align: center; color: var(--muted); font-size: .96rem; }
 
-  a.row {
-    display: block; text-decoration: none; color: inherit;
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: 16px; padding: 16px 18px; margin-bottom: 12px;
-    transition: transform .12s ease, border-color .12s ease;
+  /* Свет медленно ходит за заголовком. Один авторский момент, не декор на каждом блоке. */
+  body::before{
+    content:"";
+    position:fixed; inset:-30% -30% auto -30%; height:70vh; z-index:0;
+    background:radial-gradient(48% 42% at 50% 40%, rgba(159,216,255,.16), transparent 70%);
+    filter:blur(18px);
+    animation:drift 22s var(--ease) infinite alternate;
+    pointer-events:none;
   }
-  a.row:hover, a.row:active { transform: translateY(-1px); border-color: var(--muted); }
-  .row b { display: block; font-size: 1.02rem; font-weight: 620; margin-bottom: 3px; }
-  .row span { display: block; color: var(--muted); font-size: .9rem; }
+  @keyframes drift{
+    from{transform:translate3d(-7%,0,0) scale(1)}
+    to  {transform:translate3d(9%,3%,0) scale(1.14)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body::before{animation:none}
+  }
 
-  footer { margin-top: 26px; text-align: center; color: var(--muted); font-size: .82rem; }
+  main{position:relative; z-index:1; width:100%; max-width:33rem; display:flex; flex-direction:column}
+
+  .name{
+    font-size:.72rem; font-weight:700; letter-spacing:.42em; text-transform:uppercase;
+    color:var(--dim);
+  }
+
+  h1{
+    margin-top:auto; padding:56px 0 40px;
+    font-size:clamp(2.5rem,11.5vw,4.25rem);
+    font-weight:800; line-height:.94; letter-spacing:-.045em;
+    text-wrap:balance;
+  }
+  h1 em{font-style:normal; color:var(--dim)}
+
+  nav{border-top:1px solid var(--line)}
+
+  a.exit{
+    display:grid; grid-template-columns:1fr auto; align-items:center; gap:20px;
+    padding:22px 2px; border-bottom:1px solid var(--line);
+    text-decoration:none; color:inherit;
+    position:relative; isolation:isolate;
+    opacity:0; transform:translateY(14px);
+    animation:rise .9s var(--ease) forwards;
+  }
+  a.exit:nth-of-type(1){animation-delay:.05s}
+  a.exit:nth-of-type(2){animation-delay:.13s}
+  a.exit:nth-of-type(3){animation-delay:.21s}
+  @keyframes rise{to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    a.exit{opacity:1; transform:none; animation:none}
+  }
+
+  /* Заливка строки уходит из-под курсора, а не появляется рамкой */
+  a.exit::before{
+    content:""; position:absolute; inset:0 -22px; z-index:-1;
+    background:linear-gradient(90deg, rgba(159,216,255,.09), transparent 78%);
+    opacity:0; transition:opacity .35s var(--ease);
+  }
+  a.exit:hover::before,
+  a.exit:focus-visible::before{opacity:1}
+
+  .exit b{display:block; font-size:1.32rem; font-weight:700; letter-spacing:-.025em; line-height:1.15}
+  .exit small{display:block; margin-top:6px; font-size:.9rem; font-weight:300; color:var(--dim); line-height:1.45}
+
+  .arrow{width:22px; height:22px; flex:none; color:var(--dim);
+         transition:transform .4s var(--ease), color .3s var(--ease)}
+  a.exit:hover .arrow,
+  a.exit:focus-visible .arrow{transform:translateX(6px); color:var(--beam)}
+
+  footer{margin-top:34px; font-size:.82rem; font-weight:300; color:var(--dim)}
+
+  /* Поверхности браузера тоже часть страницы */
+  ::selection{background:var(--beam); color:var(--void)}
+  :focus-visible{outline:2px solid var(--beam); outline-offset:6px; border-radius:2px}
+  ::-webkit-scrollbar{width:10px}
+  ::-webkit-scrollbar-track{background:var(--void)}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:99px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--dim)}
 </style>
 </head>
 <body>
-  <main class="wrap">
+<main>
 
-    <div class="mark">A</div>
-    <h1>Aza</h1>
-    <p class="lead">Живу легко, автоматизирую всё вокруг.</p>
+  <p class="name">Aza</p>
 
-    <a class="row" href="https://t.me/bastyq_bot">
-      <b>Владельцам бизнеса</b>
-      <span>Бот читает кассу и показывает, где утекают деньги</span>
+  <h1>Живу легко.<br><em>Автоматизирую всё вокруг.</em></h1>
+
+  <nav>
+
+    <a class="exit" href="https://t.me/bastyq_bot">
+      <span>
+        <b>Владельцам бизнеса</b>
+        <small>Бот читает кассу и показывает, где утекают деньги</small>
+      </span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h13M13 6l6 6-6 6"/>
+      </svg>
     </a>
 
-    <a class="row" href="https://t.me/vibecodingkz_bot">
-      <b>Хочу так же, но сам</b>
-      <span>Курс по Claude Code с нуля, без опыта в коде</span>
+    <a class="exit" href="https://t.me/vibecodingkz_bot">
+      <span>
+        <b>Хочу так же, но сам</b>
+        <small>Курс по Claude Code с нуля, без опыта в коде</small>
+      </span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h13M13 6l6 6-6 6"/>
+      </svg>
     </a>
 
-    <a class="row" href="https://www.instagram.com/666xbmw">
-      <b>Блог</b>
-      <span>Как это всё выглядит изнутри</span>
+    <a class="exit" href="https://www.instagram.com/666xbmw">
+      <span>
+        <b>Блог</b>
+        <small>Как это всё выглядит изнутри</small>
+      </span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h13M13 6l6 6-6 6"/>
+      </svg>
     </a>
 
-    <footer>Пишите в личку, отвечаю сам</footer>
+  </nav>
 
-  </main>
+  <footer>Пишите в личку, отвечаю сам</footer>
+
+</main>
 </body>
 </html>
