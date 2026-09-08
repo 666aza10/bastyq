@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#0B0B0C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --void:#0B0B0C;
@@ -63,6 +63,14 @@
   }
   .exit small + small{margin-top:8px}
 
+  /* Плашка отсекает чужое: собственнику не читать про курс, новичку про кассу.
+     Обводка, а не заливка — заливка перебила бы заголовок. */
+  .tag{
+    display:inline-block; margin-top:16px;
+    padding:5px 12px; border:1px solid var(--line); border-radius:99px;
+    color:var(--dim); font-size:.78rem; font-weight:600; letter-spacing:.02em;
+  }
+
   .arrow{width:24px; height:24px; flex:none; color:var(--dim); margin-top:6px;
          transition:transform .45s var(--ease), color .35s var(--ease)}
   a.exit:hover .arrow, a.exit:focus-visible .arrow{transform:translateX(8px); color:var(--ink)}
@@ -86,6 +94,7 @@
         <b>Аналитика бизнеса</b>
         <small>Бот в телеграме подключается к вашей кассе и каждое утро говорит, что вчера пошло не так.</small>
         <small>Показывает то, чего касса не показывает: клиентов, которые не вернулись, завышенную себестоимость, тихо поднятые цены поставщиков.</small>
+        <span class="tag">Для бизнеса</span>
       </span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
@@ -96,6 +105,7 @@
         <b>Курс Claude Code</b>
         <small>Научу собирать таких помощников самому, с нуля и без опыта в коде.</small>
         <small>Отчёты, таблицы, рассылки — то, что вы делаете руками каждый день, начинает делаться само.</small>
+        <span class="tag">Для новичков</span>
       </span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
