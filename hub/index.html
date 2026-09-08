@@ -38,6 +38,12 @@
 
   main{position:relative; z-index:1; width:100%; max-width:34rem; display:flex; flex-direction:column}
 
+  /* Баннер необязателен: нет файла — картинка убирает себя, страница не ломается */
+  .banner{
+    display:block; width:100%; aspect-ratio:3/2; object-fit:cover;
+    margin-bottom:26px; background:#121214;
+  }
+
   .name{
     font-size:.7rem; font-weight:700; letter-spacing:.44em; text-transform:uppercase;
     color:var(--dim);
@@ -67,6 +73,8 @@
 </head>
 <body>
 <main>
+
+  <img class="banner" src="banner.jpg" alt="" onerror="this.remove()">
 
   <p class="name">Aza</p>
 
