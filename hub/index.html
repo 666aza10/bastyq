@@ -46,7 +46,7 @@
   nav{margin:auto 0; border-top:1px solid var(--line)}
 
   a.exit{
-    display:grid; grid-template-columns:1fr auto; align-items:center; gap:18px;
+    display:grid; grid-template-columns:1fr auto; align-items:start; gap:18px;
     padding:30px 0; border-bottom:1px solid var(--line);
     text-decoration:none; color:inherit;
   }
@@ -55,13 +55,15 @@
     font-size:clamp(1.32rem,5.6vw,1.7rem);
     font-weight:700; letter-spacing:-.035em; line-height:1.12;
   }
-  /* Не идея потери, а конкретная находка: её примеряют на себя */
+  /* Сначала ЧТО ЭТО, потом чего касса не видит. Без первой фразы боль
+     повисает в воздухе: человек не понимает, что ему предлагают. */
   .exit small{
     display:block; margin-top:11px; color:var(--dim);
     font-size:1rem; font-weight:400; line-height:1.5;
   }
+  .exit small + small{margin-top:8px}
 
-  .arrow{width:24px; height:24px; flex:none; color:var(--dim);
+  .arrow{width:24px; height:24px; flex:none; color:var(--dim); margin-top:6px;
          transition:transform .45s var(--ease), color .35s var(--ease)}
   a.exit:hover .arrow, a.exit:focus-visible .arrow{transform:translateX(8px); color:var(--ink)}
 
@@ -82,7 +84,8 @@
     <a class="exit" href="https://t.me/bastyq_bot">
       <span>
         <b>Аналитика бизнеса</b>
-        <small>Восемь из десяти ваших клиентов не вернулись. Касса этого не покажет: для неё каждый заказ новый.</small>
+        <small>Бот в телеграме подключается к вашей кассе и каждое утро говорит, что вчера пошло не так.</small>
+        <small>Показывает то, чего касса не показывает: клиентов, которые не вернулись, завышенную себестоимость, тихо поднятые цены поставщиков.</small>
       </span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
@@ -91,7 +94,8 @@
     <a class="exit" href="https://t.me/vibecodingkz_bot">
       <span>
         <b>Курс Claude Code</b>
-        <small>Отчёты, таблицы и рассылки каждый день руками. Это можно отдать помощнику, даже если не умеете кодить.</small>
+        <small>Научу собирать таких помощников самому, с нуля и без опыта в коде.</small>
+        <small>Отчёты, таблицы, рассылки — то, что вы делаете руками каждый день, начинает делаться само.</small>
       </span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
