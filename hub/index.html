@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aza</title>
-<meta name="description" content="Живу легко, автоматизирую всё вокруг.">
+<meta name="description" content="Автоматизирую всё, до чего дотягиваюсь.">
 <meta name="theme-color" content="#08080A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     --ink:#F4F3EF;
     --dim:#8B8A84;
     --line:#211F24;
-    --beam:#9FD8FF;      /* холодный свет фар, единственный акцент */
+    --beam:#9FD8FF;
     --ease:cubic-bezier(.16,1,.3,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -33,7 +33,6 @@
     overflow-x:hidden;
   }
 
-  /* Свет медленно ходит за заголовком. Один авторский момент, не декор на каждом блоке. */
   body::before{
     content:"";
     position:fixed; inset:-30% -30% auto -30%; height:70vh; z-index:0;
@@ -46,9 +45,7 @@
     from{transform:translate3d(-7%,0,0) scale(1)}
     to  {transform:translate3d(9%,3%,0) scale(1.14)}
   }
-  @media (prefers-reduced-motion:reduce){
-    body::before{animation:none}
-  }
+  @media (prefers-reduced-motion:reduce){ body::before{animation:none} }
 
   main{position:relative; z-index:1; width:100%; max-width:33rem; display:flex; flex-direction:column}
 
@@ -58,7 +55,7 @@
   }
 
   h1{
-    margin-top:auto; padding:56px 0 40px;
+    margin-top:auto; padding:56px 0 44px;
     font-size:clamp(2.5rem,11.5vw,4.25rem);
     font-weight:800; line-height:.94; letter-spacing:-.045em;
     text-wrap:balance;
@@ -69,8 +66,9 @@
 
   a.exit{
     display:grid; grid-template-columns:1fr auto; align-items:center; gap:20px;
-    padding:22px 2px; border-bottom:1px solid var(--line);
+    padding:26px 2px; border-bottom:1px solid var(--line);
     text-decoration:none; color:inherit;
+    font-size:1.5rem; font-weight:700; letter-spacing:-.03em; line-height:1.1;
     position:relative; isolation:isolate;
     opacity:0; transform:translateY(14px);
     animation:rise .9s var(--ease) forwards;
@@ -79,11 +77,8 @@
   a.exit:nth-of-type(2){animation-delay:.13s}
   a.exit:nth-of-type(3){animation-delay:.21s}
   @keyframes rise{to{opacity:1; transform:none}}
-  @media (prefers-reduced-motion:reduce){
-    a.exit{opacity:1; transform:none; animation:none}
-  }
+  @media (prefers-reduced-motion:reduce){ a.exit{opacity:1; transform:none; animation:none} }
 
-  /* Заливка строки уходит из-под курсора, а не появляется рамкой */
   a.exit::before{
     content:""; position:absolute; inset:0 -22px; z-index:-1;
     background:linear-gradient(90deg, rgba(159,216,255,.09), transparent 78%);
@@ -92,17 +87,13 @@
   a.exit:hover::before,
   a.exit:focus-visible::before{opacity:1}
 
-  .exit b{display:block; font-size:1.32rem; font-weight:700; letter-spacing:-.025em; line-height:1.15}
-  .exit small{display:block; margin-top:6px; font-size:.9rem; font-weight:300; color:var(--dim); line-height:1.45}
-
-  .arrow{width:22px; height:22px; flex:none; color:var(--dim);
+  .arrow{width:24px; height:24px; flex:none; color:var(--dim);
          transition:transform .4s var(--ease), color .3s var(--ease)}
   a.exit:hover .arrow,
-  a.exit:focus-visible .arrow{transform:translateX(6px); color:var(--beam)}
+  a.exit:focus-visible .arrow{transform:translateX(7px); color:var(--beam)}
 
-  footer{margin-top:34px; font-size:.82rem; font-weight:300; color:var(--dim)}
+  footer{margin-top:36px; font-size:.82rem; font-weight:300; color:var(--dim)}
 
-  /* Поверхности браузера тоже часть страницы */
   ::selection{background:var(--beam); color:var(--void)}
   :focus-visible{outline:2px solid var(--beam); outline-offset:6px; border-radius:2px}
   ::-webkit-scrollbar{width:10px}
@@ -116,41 +107,26 @@
 
   <p class="name">Aza</p>
 
-  <h1>Живу легко.<br><em>Автоматизирую всё вокруг.</em></h1>
+  <h1>Автоматизирую всё,<br><em>до чего дотягиваюсь.</em></h1>
 
   <nav>
 
     <a class="exit" href="https://t.me/bastyq_bot">
-      <span>
-        <b>Владельцам бизнеса</b>
-        <small>Бот читает кассу и показывает, где утекают деньги</small>
-      </span>
+      Аналитика бизнеса
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M5 12h13M13 6l6 6-6 6"/>
-      </svg>
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a>
 
     <a class="exit" href="https://t.me/vibecodingkz_bot">
-      <span>
-        <b>Хочу так же, но сам</b>
-        <small>Курс по Claude Code с нуля, без опыта в коде</small>
-      </span>
+      Курс Claude Code
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M5 12h13M13 6l6 6-6 6"/>
-      </svg>
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a>
 
     <a class="exit" href="https://www.instagram.com/666xbmw">
-      <span>
-        <b>Блог</b>
-        <small>Как это всё выглядит изнутри</small>
-      </span>
+      Блог
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M5 12h13M13 6l6 6-6 6"/>
-      </svg>
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
     </a>
 
   </nav>
