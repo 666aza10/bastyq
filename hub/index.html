@@ -28,7 +28,9 @@
     min-height:100svh;
     display:flex;
     justify-content:center;
-    padding:max(30px,env(safe-area-inset-top)) 24px max(30px,env(safe-area-inset-bottom));
+    /* 12.09: ужато. В браузере телеграма третий выход уходил за экран целиком,
+       а выход, которого не видно, не существует. */
+    padding:max(18px,env(safe-area-inset-top)) 22px max(18px,env(safe-area-inset-bottom));
   }
 
   body::after{
@@ -48,30 +50,30 @@
   nav{margin:auto 0; border-top:1px solid var(--line)}
 
   a.exit{
-    display:grid; grid-template-columns:1fr auto; align-items:start; gap:18px;
-    padding:30px 0; border-bottom:1px solid var(--line);
+    display:grid; grid-template-columns:1fr auto; align-items:start; gap:14px;
+    padding:19px 0; border-bottom:1px solid var(--line);
     text-decoration:none; color:inherit;
   }
   .exit b{
     display:block; color:var(--ink);
-    font-size:clamp(1.32rem,5.6vw,1.7rem);
-    font-weight:700; letter-spacing:-.035em; line-height:1.12;
+    font-size:clamp(1.14rem,4.6vw,1.4rem);
+    font-weight:700; letter-spacing:-.03em; line-height:1.14;
   }
   /* Сначала ЧТО ЭТО, потом чего касса не видит. Без первой фразы боль
      повисает в воздухе: человек не понимает, что ему предлагают. */
   .exit small{
-    display:block; margin-top:11px; color:var(--dim);
-    font-size:1rem; font-weight:400; line-height:1.5;
+    display:block; margin-top:7px; color:var(--dim);
+    font-size:.9rem; font-weight:400; line-height:1.42;
   }
-  .exit small + small{margin-top:8px}
+  .exit small + small{margin-top:5px}
 
   /* Плашка отсекает чужое: собственнику не читать про курс, новичку про кассу.
      Золото — единственный цвет на всей странице, и оно работает ровно потому,
      что больше нигде его нет. Красить им же заголовки или стрелки нельзя:
      акцент, повторённый трижды, перестаёт быть акцентом. */
   .tag{
-    display:inline-block; margin-top:18px;
-    padding:6px 13px; border-radius:99px;
+    display:inline-block; margin-top:11px;
+    padding:4px 11px; border-radius:99px;
     background:rgba(210,176,116,.1);
     border:1px solid rgba(210,176,116,.32);
     color:var(--gold);
@@ -104,7 +106,7 @@
       <span>
         <b>Аналитика бизнеса</b>
         <small>Бот в телеграме подключается к вашей кассе и каждое утро говорит, что вчера пошло не так.</small>
-        <small>Показывает то, чего касса не показывает: клиентов, которые не вернулись, завышенную себестоимость, тихо поднятые цены поставщиков.</small>
+        <small>Ушедшие клиенты, завышенная себестоимость, тихо поднятые цены поставщиков.</small>
         <span class="tag">Для бизнеса</span>
       </span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
@@ -118,7 +120,7 @@
       <span>
         <b>Курс Claude Code</b>
         <small>Научу собирать таких помощников самому, с нуля и без опыта в коде.</small>
-        <small>Отчёты, таблицы, рассылки — то, что вы делаете руками каждый день, начинает делаться само.</small>
+        <small>Отчёты, таблицы, рассылки начинают делаться сами.</small>
         <span class="tag">Для новичков</span>
       </span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
