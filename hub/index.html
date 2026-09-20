@@ -2,178 +2,21 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- 20.09. Хаб переехал на короткий адрес 666aza10.github.io (18 знаков против
+     35: старый лежал в шапке инстаграма и читался как мусор). Здесь остаётся
+     только переадресация, а не вторая копия страницы — две копии одного текста
+     разъезжаются на первой же правке, и тогда один из профилей начинает
+     показывать вчерашнюю версию.
+     Метка th, а не ig: на этот адрес смотрит шапка Threads и старые посты,
+     то есть всё, что сюда приходит, приходит оттуда.
+     Сама страница никуда не делась, её история лежит в этом же репозитории. -->
+<meta http-equiv="refresh" content="0; url=https://666aza10.github.io/?s=th">
 <title>Aza</title>
 <meta name="theme-color" content="#0B0B0C">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --void:#0B0B0C;
-    --ink:#E9E7E2;
-    --dim:#8B887F;
-    --line:#1D1D1F;
-    /* Приглушённая латунь. Чистое золото (#FFD700) на чёрном читается дёшево. */
-    --gold:#D2B074;
-    --ease:cubic-bezier(.2,.8,.2,1);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-text-size-adjust:100%}
-
-  body{
-    background:var(--void);
-    color:var(--ink);
-    font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    min-height:100svh;
-    display:flex;
-    justify-content:center;
-    /* 12.09: ужато. В браузере телеграма третий выход уходил за экран целиком,
-       а выход, которого не видно, не существует. */
-    padding:max(18px,env(safe-area-inset-top)) 22px max(18px,env(safe-area-inset-bottom));
-  }
-
-  body::after{
-    content:"";
-    position:fixed; inset:0; z-index:2; pointer-events:none; opacity:.035;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
-  }
-
-  main{position:relative; z-index:1; width:100%; max-width:34rem; display:flex; flex-direction:column}
-
-  /* Баннер необязателен: нет файла — картинка убирает себя, страница не ломается */
-  .banner{
-    display:block; width:100%; aspect-ratio:3/2; object-fit:cover;
-    background:#121214;
-  }
-
-  nav{margin:auto 0; border-top:1px solid var(--line)}
-
-  a.exit{
-    display:grid; grid-template-columns:1fr auto; align-items:start; gap:14px;
-    padding:19px 0; border-bottom:1px solid var(--line);
-    text-decoration:none; color:inherit;
-  }
-  .exit b{
-    display:block; color:var(--ink);
-    font-size:clamp(1.14rem,4.6vw,1.4rem);
-    font-weight:700; letter-spacing:-.03em; line-height:1.14;
-  }
-  /* Сначала ЧТО ЭТО, потом чего касса не видит. Без первой фразы боль
-     повисает в воздухе: человек не понимает, что ему предлагают. */
-  .exit small{
-    display:block; margin-top:7px; color:var(--dim);
-    font-size:.9rem; font-weight:400; line-height:1.42;
-  }
-  .exit small + small{margin-top:5px}
-
-  /* Плашка отсекает чужое: собственнику не читать про курс, новичку про кассу.
-     Золото — единственный цвет на всей странице, и оно работает ровно потому,
-     что больше нигде его нет. Красить им же заголовки или стрелки нельзя:
-     акцент, повторённый трижды, перестаёт быть акцентом. */
-  .tag{
-    display:inline-block; margin-top:11px;
-    padding:4px 11px; border-radius:99px;
-    background:rgba(210,176,116,.1);
-    border:1px solid rgba(210,176,116,.32);
-    color:var(--gold);
-    font-size:.72rem; font-weight:600;
-    text-transform:uppercase; letter-spacing:.1em;
-  }
-
-  .arrow{width:24px; height:24px; flex:none; color:var(--dim); margin-top:6px;
-         transition:transform .45s var(--ease), color .35s var(--ease)}
-  a.exit:hover .arrow, a.exit:focus-visible .arrow{transform:translateX(8px); color:var(--ink)}
-
-  ::selection{background:var(--ink); color:var(--void)}
-  :focus-visible{outline:1px solid var(--ink); outline-offset:8px}
-  ::-webkit-scrollbar{width:9px}
-  ::-webkit-scrollbar-track{background:var(--void)}
-  ::-webkit-scrollbar-thumb{background:var(--line)}
-</style>
+<style>html,body{background:#0B0B0C;color:#E9E7E2;font:14px system-ui,sans-serif;margin:0}</style>
 </head>
 <body>
-<main>
-
-  <img class="banner" src="banner.jpg" alt="" onerror="this.remove()">
-
-  <nav>
-
-    <!-- 20.09: курс поднят первым. Страница одна на оба профиля, а трафика
-         из инстаграма на два порядка больше (≈20 000 подписчиков против 433
-         в Threads), и это новички — им курс. Собственник из Threads приходит
-         с прочитанного поста и доходит до второй строки, тем более что
-         плашка отсекает чужое.
-         ⚠️ Курс живёт на @kotcode_bot. Старый @vibecodingkz_bot занят, но ПУСТ:
-         переименовать бота нельзя (BotFather убрал /setusername), поэтому 08.09
-         завели нового и перенесли токен. Ссылку на старый не возвращать.
-         Метка ?start=hub: до 20.09 её здесь не было, и пришедший из шапки в
-         сводке «Откуда приходят» был неотличим от любого другого. Бот пишет
-         метку в sources и гайд по ней НЕ выдаёт — гайд идёт только по `guide`
-         из комментариев под роликами, это другой путь. -->
-    <a class="exit" href="https://t.me/kotcode_bot?start=hub">
-      <span>
-        <b>Курс Claude Code</b>
-        <!-- ⚠️ Было «таких помощников»: указательное слово смотрело на бота
-             Бастыка, который стоял выше. Курс поднялся первым, и указывать
-             стало не на что. Текст первого выхода обязан стоять сам по себе. -->
-        <small>Научу собирать агентов-помощников самому, с нуля и без опыта в коде.</small>
-        <small>Отчёты, таблицы, рассылки начинают делаться сами.</small>
-        <span class="tag">Для новичков</span>
-      </span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-    </a>
-
-    <!-- ?start=hub — метка источника. Без неё пришедший из шапки профиля в /stats
-         неотличим от любого другого, и проверить, работает ли выход из постов,
-         нечем. Бот принимает любую метку свободным текстом (bot.py, ctx.args[0]). -->
-    <a class="exit" href="https://t.me/bastyq_bot?start=hub">
-      <span>
-        <b>Аналитика бизнеса</b>
-        <small>Бот в телеграме подключается к вашей кассе и каждое утро говорит, что вчера пошло не так.</small>
-        <small>Ушедшие клиенты, завышенная себестоимость, тихо поднятые цены поставщиков.</small>
-        <span class="tag">Для бизнеса</span>
-      </span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-    </a>
-
-    <!-- Канал 666AZA10, 1583 подписчика. Ссылка-приглашение в ЗАКРЫТЫЙ канал: вход по
-         заявке с одобрением. Стоит третьим намеренно — первые два выхода продают,
-         этот знакомит, и человек попадает сюда, когда ни то, ни другое ему не нужно
-         прямо сейчас. Метку ?start здесь поставить нельзя, это не бот. -->
-    <a class="exit" href="https://t.me/+PgqPn6DEXhA0YjBi">
-      <span>
-        <b>Мой телеграм</b>
-        <!-- ⚠️ Не описывать содержание канала за него. Стояло «пишу, что
-             автоматизировал за неделю» — придумано мной, канал не про это.
-             Его поправка 12.09: «там не все автоматизация». -->
-        <!-- Описания нет намеренно. «Личный канал» дублировало бы и заголовок,
-             и плашку, а что там внутри — не мне рассказывать за него. -->
-        <span class="tag">Личное</span>
-      </span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-    </a>
-
-  </nav>
-
-</main>
-
-<!-- Страница одна на оба профиля, поэтому метка ?start=hub сама по себе не
-     скажет, откуда человек: из шапки инстаграма или из шапки Threads. Ссылку
-     в шапке инстаграма ставим с хвостом ?s=ig, и тогда метки становятся
-     hub_ig. Голый адрес (Threads, посты, переписки) оставляет hub.
-     Не отработает JS — останутся базовые метки, ни одна ссылка не умрёт. -->
-<script>
-(function(){
-  var s = new URLSearchParams(location.search).get('s');
-  if (!s || !/^[a-z0-9_]{1,12}$/.test(s)) return;
-  document.querySelectorAll('a.exit[href*="start=hub"]').forEach(function(a){
-    a.href = a.href.replace('start=hub', 'start=hub_' + s);
-  });
-})();
-</script>
+<script>location.replace('https://666aza10.github.io/?s=th');</script>
+<noscript><a href="https://666aza10.github.io/?s=th" style="color:#E9E7E2">Открыть</a></noscript>
 </body>
 </html>
