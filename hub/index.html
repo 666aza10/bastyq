@@ -99,6 +99,29 @@
 
   <nav>
 
+    <!-- 20.09: курс поднят первым. Страница одна на оба профиля, а трафика
+         из инстаграма на два порядка больше (≈20 000 подписчиков против 433
+         в Threads), и это новички — им курс. Собственник из Threads приходит
+         с прочитанного поста и доходит до второй строки, тем более что
+         плашка отсекает чужое.
+         ⚠️ Курс живёт на @kotcode_bot. Старый @vibecodingkz_bot занят, но ПУСТ:
+         переименовать бота нельзя (BotFather убрал /setusername), поэтому 08.09
+         завели нового и перенесли токен. Ссылку на старый не возвращать.
+         Метка ?start=hub: до 20.09 её здесь не было, и пришедший из шапки в
+         сводке «Откуда приходят» был неотличим от любого другого. Бот пишет
+         метку в sources и гайд по ней НЕ выдаёт — гайд идёт только по `guide`
+         из комментариев под роликами, это другой путь. -->
+    <a class="exit" href="https://t.me/kotcode_bot?start=hub">
+      <span>
+        <b>Курс Claude Code</b>
+        <small>Научу собирать таких помощников самому, с нуля и без опыта в коде.</small>
+        <small>Отчёты, таблицы, рассылки начинают делаться сами.</small>
+        <span class="tag">Для новичков</span>
+      </span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </a>
+
     <!-- ?start=hub — метка источника. Без неё пришедший из шапки профиля в /stats
          неотличим от любого другого, и проверить, работает ли выход из постов,
          нечем. Бот принимает любую метку свободным текстом (bot.py, ctx.args[0]). -->
@@ -108,20 +131,6 @@
         <small>Бот в телеграме подключается к вашей кассе и каждое утро говорит, что вчера пошло не так.</small>
         <small>Ушедшие клиенты, завышенная себестоимость, тихо поднятые цены поставщиков.</small>
         <span class="tag">Для бизнеса</span>
-      </span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-    </a>
-
-    <!-- ⚠️ Курс живёт на @kotcode_bot. Старый @vibecodingkz_bot занят, но ПУСТ:
-         переименовать бота нельзя (BotFather убрал /setusername), поэтому 08.09
-         завели нового и перенесли токен. Ссылку на старый не возвращать. -->
-    <a class="exit" href="https://t.me/kotcode_bot">
-      <span>
-        <b>Курс Claude Code</b>
-        <small>Научу собирать таких помощников самому, с нуля и без опыта в коде.</small>
-        <small>Отчёты, таблицы, рассылки начинают делаться сами.</small>
-        <span class="tag">Для новичков</span>
       </span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
@@ -148,5 +157,20 @@
   </nav>
 
 </main>
+
+<!-- Страница одна на оба профиля, поэтому метка ?start=hub сама по себе не
+     скажет, откуда человек: из шапки инстаграма или из шапки Threads. Ссылку
+     в шапке инстаграма ставим с хвостом ?s=ig, и тогда метки становятся
+     hub_ig. Голый адрес (Threads, посты, переписки) оставляет hub.
+     Не отработает JS — останутся базовые метки, ни одна ссылка не умрёт. -->
+<script>
+(function(){
+  var s = new URLSearchParams(location.search).get('s');
+  if (!s || !/^[a-z0-9_]{1,12}$/.test(s)) return;
+  document.querySelectorAll('a.exit[href*="start=hub"]').forEach(function(a){
+    a.href = a.href.replace('start=hub', 'start=hub_' + s);
+  });
+})();
+</script>
 </body>
 </html>
